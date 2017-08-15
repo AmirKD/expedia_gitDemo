@@ -1,0 +1,217 @@
+Summary:
+A. Create online repository (OR) in github.com
+B. install git SW local for Window
+C. git init (creat local repository (LR))
+D. Create test file README
+E. touch .gitignore (creat .gitignore file and write which file should not be uploaded to OR)
+F. git add --All (copy all files to LR)  & git status (to see which file are changed)
+G. git commit (make it read for upload to OR)
+H1. Now is time for Pushing Files to OR:
+    git remote add origin https://github.com/AmirKD/expedia_gitDemo
+    (tell or announce to git that There is a remote repository "expedia_gitDemo" which I (user "AmirKD") want to link my LR to it for this project)
+H2. git push -u origin master (send my code from local Repository which is called master to OR origin
+origin is https://github.com/AmirKD/expedia_gitDemo)
+
+
+
+!!!!! Code posted on GitHub is public !!!!!
+
+STEP_A:
+========
+1. Signup > create Account in github.com
+2. creat new reporsitory
+3. save teh link (in this case: https://github.com/AmirKD/expedia_gitDemo .... AmirKD user Name , expedia_gitDemo is repository Name)
+
+STEP_B:
+========
+Installing Git - local SW on your Computer
+to check if is installed : c:/> git  (if any response then is installed)
+
+PS D:\WorkSpace_InteliJ\mvnflightsbooking> git --version
+git version 2.13.3.windows.1
+
+
+STEP C:
+========
+in Project folder create a local git reporsitory (in this case my project folder is D:\WorkSpace_InteliJ\git)
+
+D:\WorkSpace_InteliJ\git> git init
+Initialized empty Git repository in D:/WorkSpace_InteliJ/git/.git/              // Local repository is initilaized (Hidden!!!!)
+D:\WorkSpace_InteliJ\git>
+PS D:\WorkSpace_InteliJ\git> dir -H
+
+
+    Directory: D:\WorkSpace_InteliJ\git
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d--h--       15.08.2017     15:31                .git
+
+!!!!! Code posted on GitHub is public !!!!!
+
+
+
+HINT_1 for DOS User:
+to make the Linux/Unix commands work, you may need to make sure you have Git BASH installed,
+which will allow use of those general Linux/Unix commands on Windows (touch, cat, etc.). If you do,
+everything should work the way it does in the course. (If you have it installed, and it's not working, let me know and we'll figure it out.)
+
+Otherwise, if you're not using Git BASH, you may need to use Windows Powershell commands for commands that are not explicitly part of git.
+You may find this comparison chart of DOS-commands-to-Unix-commands useful:
+
+http://www.yolinux.com/TUTORIALS/unix_for_dos_users.html
+
+If you have run the 'git init' command successfully in your local repository folder,
+have made some changes in the folder such as creating a file, and have created a remote repository on GitHub,
+then the command sequence for a first push (upload) would be:
+
+git remote add origin https://github.com/YourUserName/YourRepositoryName
+
+[do some work and create a file that you can push]
+
+git add --all
+
+git commit -m "Your Commit Message Here"
+
+git push -u origin master
+
+ Also, be aware that you need to have at least one file committed in the local repository folder before you can push (this is a quirk of git).
+
+
+Can also Use:
+>>>>> git for Windows
+      https://github.com/git-for-windows
+>>>>> GitHub desktop
+
+
+
+STEP D: Configuring git Repository
+========
+
+create a readme file (Online project description)
+
+
+D:\WorkSpace_InteliJ\git> echo "# expedia_gitDemo" >> README.md
+
+
+
+STEP E: Create git ignore file (which say git waht to ignore inside teh project directory)
+========
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+For DOS use GitBash or see http://www.diaryofaninja.com/blog/2011/06/01/how-to-easily-create-a-gitignore-file-inside-windows-explorer
+Using Git for Window: touch .gitignore
+
+edit the .gitignore fiel depend on used OS and language (see https://www.gitignore.io/)
+if we dont do it at start we shoudl do it later on repository
+
+# Created by https://www.gitignore.io/api/java,windows
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.gitignore.io/api/java,windows
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+STEP F:
+=======
+
+add Files to local repository  >
+
+F-1:
+$ git add --all
+This is just a Warning in my case: warning: LF will be replaced by CRLF in .idea/compiler.xml.
+                                   The file will have its original line endings in your working directory.
+
+                                   you can decide how you want to handle this warning. It's not critical. What's causing it? Well, LF stands for "line feed" and CRLF stands for "carriage return line feed". These are two different ways of referring to the end-of-line character in your file. You're using Windows, which uses CRLF at the end of lines, whereas Unix systems use LF.
+
+                                   For more detail about this warning, see this Stack Overflow thread:
+
+                                   https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf
+
+                                   I hope this helps, please let me know if you have any follow-up questions!
+
+F-2
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   .gitignore
+        new file:   .idea/compiler.xml
+        new file:   .idea/libraries/cglib_nodep_3_2_4.xml
+        new file:   .idea/misc.xml
+        new file:   .idea/modules.xml
+        new file:   .idea/vcs.xml
+        new file:   .idea/workspace.xml
+        new file:   GitProject.iml
+        new file:   README.md
+        new file:   pom.xml
+        new file:   readme_1_Info_Git
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   .idea/workspace.xml
+        modified:   readme_1_Info_Git
+
+
+AXX-KHAZINEHDAR+khazinehdarllo@axx-Khazinehdarllo MINGW64 /d/WorkSpace_InteliJ/git (master)
+$
+
+
+Step G:
+=======
+Commit (Commit means we mad a change and we want to add it to online repository or with other words:  make it ready to add to online repository)
+git also Build a History in local repository after commit for later
+
+git commit -m "MY-Initial Commit"
