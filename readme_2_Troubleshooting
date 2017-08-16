@@ -1,0 +1,28 @@
+$ git add --all
+This is just a Warning in my case: warning: LF will be replaced by CRLF in .idea/compiler.xml.
+                                   The file will have its original line endings in your working directory.
+
+                                   you can decide how you want to handle this warning. It's not critical. What's causing it? Well, LF stands for "line feed" and CRLF stands for "carriage return line feed". These are two different ways of referring to the end-of-line character in your file. You're using Windows, which uses CRLF at the end of lines, whereas Unix systems use LF.
+
+                                   For more detail about this warning, see this Stack Overflow thread:
+
+                                   https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf
+
+                                   I hope this helps, please let me know if you have any follow-up questions!
+
+-------------------------------------------------------------------
+
+AKD /d/WorkSpace_InteliJ/gitdemo (master)
+$ git remote add origin https://github.com/AmirKD/expedia_gitDemo
+
+AKD /d/WorkSpace_InteliJ/gitdemo (master)
+$ git push -u origin master
+remote: Permission to AmirKD/expedia_gitDemo.git denied to KumarRajar.
+fatal: unable to access 'https://github.com/AmirKD/expedia_gitDemo/': The requested URL returned error: 403
+
+AKD  /d/WorkSpace_InteliJ/gitdemo (master)
+$ git config user.name
+AmirKD
+
+Solution:???????
+---------------------------------------------------------------------------
