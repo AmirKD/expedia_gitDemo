@@ -24,5 +24,95 @@ AKD  /d/WorkSpace_InteliJ/gitdemo (master)
 $ git config user.name
 AmirKD
 
+
+>>>>>>>>>>>>>>>>>>>>> after clear History and try again to push was working fine (Strange)
+Ursache:
+========
+see https://help.github.com/articles/error-permission-to-user-repo-denied-to-user-other-repo/
+see also https://stackoverflow.com/questions/5335197/gits-famous-error-permission-to-git-denied-to-user (may be helps)
+This error means the key you are pushing with is attached to another repository as a deploy key, and does not have access to the repository you are trying to push to.
+
+To fix this, remove the deploy key from the repository, and add the key to your user account instead.(https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+
+If the key you are using is intended to be a deploy key, check out our guide on deploy keys for more details.
+
 Solution:???????
+=========
+
+About SSH Keys
+==============
+SSH keys provide a more secure way of logging into a virtual private server with SSH than using a password alone.
+While a password can eventually be cracked with a brute force attack, SSH keys are nearly impossible to decipher by brute force alone.
+Generating a key pair provides you with two long string of characters: a public and a private key.
+You can place the public key on any server, and then unlock it by connecting to it with a client that already has the private key.
+When the two match up, the system unlocks without the need for a password.
+You can increase security even more by protecting the private key with a passphrase.
+
+Checking for existing SSH keys (https://help.github.com/articles/checking-for-existing-ssh-keys/)
+==============================
+
+Open Git Bash.
+
+Enter ls -al ~/.ssh to see if existing SSH keys are present:
+
+ls -al ~/.ssh
+# Lists the files in your .ssh directory, if they exist
+Check the directory listing to see if you already have a public SSH key.
+
+generating SSH Key (https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+==================
+see https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+A. Open Git Bash.
+
+B. Paste the text below, substituting in your GitHub email address.
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+This creates a new ssh key, using the provided email as a label.
+
+C. Generating public/private rsa key pair.
+When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+
+D. Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]
+At the prompt, type a secure passphrase. For more information, see "Working with SSH key passphrases".
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]
+
+Add new Key to GitHub:
+=======================
+Ref.: https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+go to GitHub Account OnlineRep.
+Copy the SSH key to your clipboard.
+Settings > SSH and GPG keys > Click New SSH key or Add SSH key. > Click Add SSH key.
+
+
+---------------------------Git commands for trouble shoozing
+git config --list
+
+git config -l
+
+will display your username and email together, along with other info
+
+git config user.name
+git config user.email
+
+You can change your Git username like this:
+
+git config --global user.name "Alvin J. Alexander"
+
+see more https://alvinalexander.com/git/git-show-change-username-email-address
+
+
+
+
+
+You first need to remove the last ssh connection.
+
+To remove the last ssh connection, follow this command:
+
+ssh-add -D
+
+then try to push.
+
+
 ---------------------------------------------------------------------------
